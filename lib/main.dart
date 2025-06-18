@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'homescreen.dart'; 
+import 'package:ui_task/views/homescreens/loginhomescreen.dart';
+import 'views/homescreens/homescreen.dart'; 
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomeScreen(),
+    home: LoginHomeScreen(),
   ));
 }
