@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task/views/login/logout/logoutflow.dart';
-import 'package:ui_task/views/login/offline%20mode/QR_ver_screen.dart';
+
 import 'package:ui_task/views/login/offlineRemote_screen.dart';
 import 'package:ui_task/views/login/onlinemode/face_verification.dart';
 import 'package:ui_task/widgets/bottomnavigation.dart';

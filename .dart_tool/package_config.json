@@ -80,6 +80,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///C:/Users/iNsPiRoN/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.20.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "leak_tracker",
       "rootUri": "file:///C:/Users/iNsPiRoN/AppData/Local/Pub/Cache/hosted/pub.dev/leak_tracker-10.0.7",
       "packageUri": "lib/",
@@ -272,7 +278,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-06-17T16:13:53.824516Z",
+  "generated": "2025-06-18T09:21:08.191045Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///F:/flutter",

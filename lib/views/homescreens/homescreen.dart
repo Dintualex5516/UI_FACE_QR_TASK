@@ -3,7 +3,7 @@ import 'package:ui_task/views/homescreens/loginhomescreen.dart';
 import 'package:ui_task/views/login/logout/logoutflow.dart';
 import 'package:ui_task/views/login/offline%20mode/QR_ver_screen.dart';
 import 'package:ui_task/views/login/onlinemode/face_verification.dart';
-// import 'package:ui_task/views/login/offline%20mode/QRVerificationScreen.dart';
+
 import 'package:ui_task/widgets/customappbar.dart';
 import 'package:ui_task/widgets/dashboardgrid.dart';
 import 'package:ui_task/widgets/overview.dart';
@@ -114,12 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               ElevatedButton.icon(
                                 onPressed: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => FaceVerificationScreen(isCheckout: false),
-                                  //   ),
-                                  // );
+                                 
                                 },
                                 icon: Icon(Icons.refresh),
                                 label: Text("Check In"),
