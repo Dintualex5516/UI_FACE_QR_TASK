@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1035985414483",
+    "project_id": "ui-task-miniproject",
+    "storage_bucket": "ui-task-miniproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035985414483:android:28c4165f52fc09a5d319a6",
+        "android_client_info": {
+          "package_name": "com.example.ui_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1SyJYERCVZvomuRsgH9-MhuLbmj73jAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

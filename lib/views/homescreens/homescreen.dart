@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ui_task/viewmodel/homescreenmodel.dart';
 import 'package:ui_task/views/homescreens/loginhomescreen.dart';
-import 'package:ui_task/views/login/logout/logoutflow.dart';
-import 'package:ui_task/views/login/offline%20mode/QR_ver_screen.dart';
-import 'package:ui_task/views/login/onlinemode/face_verification.dart';
-
+import 'package:ui_task/views/punch%20in%20out%20screens/logout/logoutflow.dart';
+import 'package:ui_task/views/punch%20in%20out%20screens/offline%20mode/QR_ver_screen.dart';
+import 'package:ui_task/views/punch%20in%20out%20screens/onlinemode/face_verification.dart';
 import 'package:ui_task/widgets/customappbar.dart';
 import 'package:ui_task/widgets/dashboardgrid.dart';
 import 'package:ui_task/widgets/overview.dart';
-import '../../widgets/bottomnavigation.dart'; 
-import 'package:ui_task/services/punch_method_service.dart';
+import 'package:ui_task/widgets/bottomnavigation.dart';
 
 enum SelectedTab { none, myTasks, taskTracker, ongoing, workSummary }
 
@@ -20,32 +20,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final Color primaryColor = Color(0xFF007AFF);
   final Color backgroundColor = Color(0xFFF6F7FB);
-  int _currentIndex = 0;
   SelectedTab selected = SelectedTab.none;
-
-  String? _punchMethod;
 
   @override
   void initState() {
     super.initState();
-    loadPunchInMethod();
-  }
-
-  Future<void> loadPunchInMethod() async {
-    String? method = await getPunchInMethod();
-    setState(() {
-      _punchMethod = method;
-    });
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+    Future.microtask(() => Provider.of<HomeScreenViewModel>(context, listen: false).loadPunchInMethod());
   }
 
   @override
   Widget build(BuildContext context) {
+    final homeVM = Provider.of<HomeScreenViewModel>(context);
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -55,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [SizedBox(height:10),
+                children: [
+                  SizedBox(height: 10),
                   CustomAppBar(
                     profileImageUrl: "https://media.licdn.com/dms/image/v2/D5603AQG8pugqWanzNA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722544790022?e=1755129600&v=beta&t=GmN-4Hoar1stXcXngmfE5y2fO6JwPQrpLIulL1wALYs",
                     name: "Hermanth Rangarajan",
@@ -113,9 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             children: [
                               ElevatedButton.icon(
-                                onPressed: () {
-                                 
-                                },
+                                onPressed: () {},
                                 icon: Icon(Icons.refresh),
                                 label: Text("Check In"),
                                 style: ElevatedButton.styleFrom(
@@ -125,62 +110,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               SizedBox(width: 12),
-                             ElevatedButton.icon(
-                              icon: const Icon(Icons.logout),
-                              label: const Text("Check Out"),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.orange,
-                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                              ElevatedButton.icon(
+                                icon: const Icon(Icons.logout),
+                                label: const Text("Check Out"),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.orange,
+                                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                                ),
+                                onPressed: () {
+                                  homeVM.showCheckoutConfirmationDialog(context, homeVM.punchMethod);
+                                },
                               ),
-                              onPressed: () {
-                                showCheckoutConfirmationDialog(
-                                                            context,
-                                                            punchMethod: _punchMethod,
-                                                          );
-                              },
-                            ),
-                                // --------confirm check out box here venam
-                              //   onPressed: () async {
-                              //     if (_punchMethod == 'face') {
-                              //       Navigator.push(
-                              //         context,
-                              //         MaterialPageRoute(
-                              //           builder: (_) => FaceVerificationScreen(isCheckout: true),
-                              //         ),
-                              //       );
-                              //     } else if (_punchMethod == 'qr') {
-                              //       Navigator.push(
-                              //         context,
-                              //         MaterialPageRoute(
-                              //           builder: (_) => QRVerificationScreen(isCheckout: true),
-                              //         ),
-                              //       );
-                              //     } else {
-                              //       showDialog(
-                              //         context: context,
-                              //         builder: (context) => AlertDialog(
-                              //           title: Text("Error"),
-                              //           content: Text("Punch in method not found."),
-                              //           actions: [
-                              //             TextButton(
-                              //               onPressed: () => Navigator.pop(context),
-                              //               child: Text("OK"),
-                              //             )
-                              //           ],
-                              //         ),
-                              //       );
-                              //     }
-                              //   },
-                                
-                              //   icon: Icon(Icons.logout_rounded),
-                              //   label: Text("Check Out"),
-                              //   style: ElevatedButton.styleFrom(
-                              //     backgroundColor: Colors.blue.shade600,
-                              //     foregroundColor: Colors.white,
-                              //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                              //   ),
-                              // ),
-                              // -------------------------------------------------------
                             ],
                           ),
                         ],
@@ -199,8 +139,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
+        currentIndex: homeVM.currentIndex,
+        onTap: homeVM.updateTabIndex,
       ),
     );
   }
