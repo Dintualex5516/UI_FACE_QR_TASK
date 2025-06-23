@@ -68,96 +68,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
     return Scaffold(
       appBar:AppBarHistory() ,
       backgroundColor: Colors.white,
-      // appBar: PreferredSize(
-      //   preferredSize: const Size.fromHeight(70),
-      //   child: Container(
-      //     decoration: BoxDecoration(
-      //       color: const Color.fromARGB(255, 253, 243, 243),
-      //       boxShadow: [
-      //         BoxShadow(
-      //           color: Colors.grey.shade300,
-      //           blurRadius: 4,
-      //           offset: const Offset(0, 2),
-      //         )
-      //       ],
-      //     ),
-      //     child: AppBar(
-      //       elevation: 0,
-      //       backgroundColor: Colors.transparent,
-      //       automaticallyImplyLeading: false,
-      //       leading: Padding(
-      //         padding: const EdgeInsets.only(left: 12.0),
-      //         child: ClipOval(
-      //           child: Image.asset(
-      //             "assets/images/ziya.jpeg",
-      //             height: 20,
-      //             width: 30,
-      //             fit: BoxFit.cover,
-      //           ),
-      //         ),
-      //       ),
-      //       titleSpacing: 0,
-      //       title: Padding(
-      //         padding: const EdgeInsets.only(left: 15.0, right: 8.0),
-      //         child: Container(
-      //           height: 36,
-      //           width: 200,
-      //           padding: const EdgeInsets.symmetric(horizontal: 12),
-      //           decoration: BoxDecoration(
-      //             color: Colors.white,
-      //             borderRadius: BorderRadius.circular(2),
-      //             boxShadow: [
-      //               BoxShadow(
-      //                 color: Colors.grey.shade300,
-      //                 blurRadius: 4,
-      //                 offset: const Offset(0, 2),
-      //               ),
-      //             ],
-      //           ),
-      //           alignment: Alignment.centerLeft,
-      //           child: const Text(
-      //             "Search",
-      //             style: TextStyle(
-      //               color: Color.fromARGB(255, 102, 100, 100),
-      //               fontSize: 14,
-      //               fontWeight: FontWeight.w400,
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //       actions: [
-      //         IconButton(
-      //           onPressed: () {},
-      //           icon: Container(
-      //             decoration: const BoxDecoration(
-      //               shape: BoxShape.circle,
-      //               color: Colors.blue,
-      //             ),
-      //             padding: const EdgeInsets.all(8),
-      //             child: const Icon(
-      //               Icons.notifications,
-      //               color: Colors.white,
-      //             ),
-      //           ),
-      //         ),
-      //         const SizedBox(width: 5),
-      //         IconButton(
-      //           onPressed: () {},
-      //           icon: ClipOval(
-      //             child: Image.asset(
-      //               "assets/images/dd.jpg",
-      //               height: 34,
-      //               width: 34,
-      //               fit: BoxFit.cover,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //       centerTitle: false,
-      //       foregroundColor: Colors.black,
-      //     ),
-      //   ),
-      // ),
+      
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
@@ -168,7 +79,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               children: [
                 Expanded(
                   child: SizedBox(
-                    height: 40, // ↓ reduced height
+                    height: 40, 
                     child: ElevatedButton.icon(
                       onPressed: () {
                         setState(() {
@@ -178,14 +89,14 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                       },
                       icon: const Icon(
                         Icons.dashboard,
-                        size: 20, // ↓ icon size
-                        color: Colors.grey, // icon color
+                        size: 20, 
+                        color: Colors.grey, 
                       ),
                       label: const Text('Dashboard'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
-                        foregroundColor: Colors.grey, // text color
-                        textStyle: const TextStyle(fontSize: 14), // ↓ reduced text size
+                        foregroundColor: Colors.grey, 
+                        textStyle: const TextStyle(fontSize: 14), 
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
                         ),
@@ -384,22 +295,29 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Expanded(
-                    child: Container(
-                      height: 56,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: shadowBoxDecoration,
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton<String>(
-                          hint: const Text('Choose Type', style: TextStyle(color: Colors.grey, fontSize: 13)), 
-                          value: _leaveType,
-                          icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
-                          items: _leaveTypes.map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
-                          onChanged: (v) => setState(() => _leaveType = v),
-                        ),
-                      ),
-                    ),
-                  ),
+                 Expanded(
+  child: Container(
+    height: 52,
+    padding: const EdgeInsets.symmetric(horizontal: 8),
+    decoration: shadowBoxDecoration,
+    child: DropdownButtonHideUnderline(
+      child: DropdownButton<String>(
+        isExpanded: true, // ✅ Important to prevent overflow
+        hint: const Text(
+          'Choose Type',
+          style: TextStyle(color: Colors.grey, fontSize: 13),
+        ),
+        value: _leaveType,
+        icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
+        items: _leaveTypes
+            .map((s) => DropdownMenuItem(value: s, child: Text(s)))
+            .toList(),
+        onChanged: (v) => setState(() => _leaveType = v),
+      ),
+    ),
+  ),
+),
+
                 ],
               ),
               const SizedBox(height: 16),

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 
+ String bullet = "\u2022 ";
 
 class MyTasksContent extends StatelessWidget {
   final ScrollController scrollController;
   MyTasksContent({required this.scrollController});
 
+ 
+
 
   final List<Map<String, String>> tasks = [
     {
       "title": "UI/UX design implementation",
-      "desc": "translating design specifications   into functional and visually appealing user interfaces."
+      "desc":  "translating design specifications   into functional and visually appealing user interfaces."
     },
     {
       "title": "Responsive design",
@@ -45,21 +48,26 @@ class MyTasksContent extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 16),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(t["title"]!,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color(0xFF008000))),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Color.fromARGB(255, 96, 226, 96))),
             SizedBox(height: 4),
             Text(t["desc"]!, style: TextStyle(color: Colors.grey[700])),
+            SizedBox(height:12),
             Align(
               alignment: Alignment.centerRight,
               child: ElevatedButton(
-                onPressed: () {},
-                child: Text("Start"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  elevation: 0,
-                ),
-              ),
-            ),
+  onPressed: () {},
+  child: Text("Make as Done"),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.blue,
+    foregroundColor: Colors.white,
+    elevation: 0,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(4), // smaller radius → less curve
+    ),
+  ),
+)
+
+            ),SizedBox(height:12),
             Divider(),
           ]),
         ))

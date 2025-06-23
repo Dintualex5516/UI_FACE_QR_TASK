@@ -72,8 +72,7 @@ class _FaceVerificationScreenState extends State<FaceVerificationScreen> with Si
             ),
             const SizedBox(height: 40),
 
-            // Face Scanning annnimation
-
+            // ---------------------------------------------------
             Center(
               child: Stack(
                 alignment: Alignment.topCenter,

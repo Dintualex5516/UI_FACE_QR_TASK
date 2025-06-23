@@ -8,6 +8,7 @@ import 'package:ui_task/views/punch%20in%20out%20screens/onlinemode/face_verific
 import 'package:ui_task/widgets/customappbar.dart';
 import 'package:ui_task/widgets/dashboardgrid.dart';
 import 'package:ui_task/widgets/overview.dart';
+
 import 'package:ui_task/widgets/bottomnavigation.dart';
 
 enum SelectedTab { none, myTasks, taskTracker, ongoing, workSummary }
@@ -60,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
+                        
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [BoxShadow(color: Colors.grey.shade300, blurRadius: 5)],
@@ -102,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ElevatedButton.icon(
                                 onPressed: () {},
                                 icon: Icon(Icons.refresh),
-                                label: Text("Check In"),
+                                label: Text("Punch In"),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.grey.shade300,
                                   foregroundColor: Colors.black54,
@@ -112,13 +114,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               SizedBox(width: 12),
                               ElevatedButton.icon(
                                 icon: const Icon(Icons.logout),
-                                label: const Text("Check Out"),
+                                label: const Text("Punch Out"),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orange,
                                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                                 ),
                                 onPressed: () {
+                                  
                                   homeVM.showCheckoutConfirmationDialog(context, homeVM.punchMethod);
+                                  
                                 },
                               ),
                             ],

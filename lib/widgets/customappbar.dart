@@ -50,12 +50,12 @@ class CustomAppBar extends StatelessWidget {
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                         Text(
                           role,
-                          style: const TextStyle(color: Colors.black87),
+                          style: const TextStyle(color: Colors.white),
                         ),
                       ],
                     ),

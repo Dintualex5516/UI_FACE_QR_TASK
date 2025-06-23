@@ -29,14 +29,18 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginHomeViewModel()),
-         ChangeNotifierProvider(create: (_) => HomeScreenViewModel()),
+        ChangeNotifierProvider(create: (_) => HomeScreenViewModel()),
         ChangeNotifierProvider(create: (_) => LoginViewModel(AuthModel())),
         ChangeNotifierProvider(create: (_) => SignupViewModel(AuthModel())),
         ChangeNotifierProvider(create: (_) => ForgotPasswordViewModel(AuthModel())),
       ],
       child: MaterialApp(
+        theme: ThemeData(
+    fontFamily: 'PoppinsLight', 
+    // primarySwatch: Colors.blue,
+  ),
         debugShowCheckedModeBanner: false,
-        home: LoginPage(), // your entry page
+        home: LoginPage(), 
       ),
     );
   }

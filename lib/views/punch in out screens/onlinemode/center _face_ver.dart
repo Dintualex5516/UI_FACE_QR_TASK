@@ -52,8 +52,7 @@ class CenterYourFaceScreen extends StatelessWidget {
                         color: Colors.black54,
                       ),
                     ),
-                    // SizedBox(height: 40),
-                    // Icon(Icons.camera_alt_outlined, size: 150, color: Colors.grey),
+                    
                   ],
                 ),
               ),

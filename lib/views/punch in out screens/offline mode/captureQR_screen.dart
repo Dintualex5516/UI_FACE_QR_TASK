@@ -59,7 +59,7 @@ class CenterYourQRScreen extends StatelessWidget {
                 ),
               ),
 
-              // Bottom buttons
+              // ----------------------------------------
               Positioned(
                 bottom: 60,
                 left: 0,
@@ -67,7 +67,7 @@ class CenterYourQRScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Camera Icon ---------------------------
+                    //  ---------------------------
                     Container(
                       padding: const EdgeInsets.all(14),
                       decoration: const BoxDecoration(
@@ -78,7 +78,7 @@ class CenterYourQRScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: 30),
 
-                    // Tick Icon --------------------------------------
+                    //  --------------------------------------
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(

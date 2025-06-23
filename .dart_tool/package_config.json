@@ -44,6 +44,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "dotted_line",
+      "rootUri": "file:///C:/Users/iNsPiRoN/AppData/Local/Pub/Cache/hosted/pub.dev/dotted_line-3.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "equatable",
       "rootUri": "file:///C:/Users/iNsPiRoN/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.7",
       "packageUri": "lib/",
@@ -356,7 +362,7 @@
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-06-19T15:21:21.331767Z",
+  "generated": "2025-06-21T10:44:12.986886Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///F:/flutter",

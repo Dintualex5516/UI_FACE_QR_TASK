@@ -77,14 +77,14 @@ class _overviewcontentState extends State<overviewcontent> {
                         Radio<String>(
                           value: label,
                           groupValue: _sortBy,
-                          activeColor: Theme.of(context).primaryColor,
+                          activeColor: Colors.black,
                           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           onChanged: (val) => setState(() => _sortBy = val!),
                         ),
                         Text(
                           label,
                           style: TextStyle(
-                            color: selectedLabel ? Theme.of(context).primaryColor : Colors.grey[800],
+                            color: selectedLabel ? Colors.black : Colors.grey[800],
                           ),
                         ),
                         const SizedBox(width: 16),

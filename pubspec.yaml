@@ -44,6 +44,7 @@ dev_dependencies:
   firebase_core: ^2.27.0
   firebase_auth: ^4.17.3
   provider: ^6.1.2
+  dotted_line: ^3.2.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -79,6 +80,20 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: PoppinsThin
+      fonts:
+        - asset: assets/fonts/Poppins Thin 250.ttf
+
+    - family: PoppinsLight
+      fonts:
+        - asset: assets/fonts/Poppins Light 300.ttf
+
+    - family: PoppinsExtraLight
+      fonts:
+        - asset: assets/fonts/Poppins ExtraLight 275.ttf
+        # - asset: assets/fonts/Poppins-Bold.ttf
+        #   weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:

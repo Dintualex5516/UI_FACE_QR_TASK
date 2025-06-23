@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
           return Scaffold(
             body: Stack(
               children: [
-                // Top-left background decoration
+             
                 Positioned(
                   top: -100,
                   left: -100,
@@ -36,7 +36,6 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
 
-                // Bottom-right background decoration
                 Positioned(
                   bottom: -100,
                   right: -100,
@@ -52,7 +51,6 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
 
-                // Foreground login form
                 Center(
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -92,21 +90,51 @@ class LoginPage extends StatelessWidget {
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
+                              // onPressed: vm.isLoading
+                              //     ? null
+                              //     : () async {
+                              //         final error = await vm.login();
+                              //         if (error == null) {
+                              //           Navigator.pushReplacement(
+                              //             context,
+                              //             MaterialPageRoute(builder: (_) => LoginHomeScreen()),
+                              //           );
+                              //         } else {
+                              //           ScaffoldMessenger.of(context).showSnackBar(
+                              //             SnackBar(content: Text(error)),
+                              //           );
+                              //         }
+                              //       },
                               onPressed: vm.isLoading
-                                  ? null
-                                  : () async {
-                                      final error = await vm.login();
-                                      if (error == null) {
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(builder: (_) => LoginHomeScreen()),
-                                        );
-                                      } else {
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(content: Text(error)),
-                                        );
-                                      }
-                                    },
+                            ? null
+                            : () async {
+                                final error = await vm.login();
+                                if (error == null) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text("Login successful"),
+                                      backgroundColor: Colors.green,
+                                      duration: Duration(seconds: 2),
+                                    ),
+                                  );
+
+                                  await 
+                                  // Future.delayed(const Duration(seconds: 1)); 
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => LoginHomeScreen()),
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(error),
+                                      backgroundColor: Colors.red,
+                                      duration: const Duration(seconds: 2),
+                                    ),
+                                  );
+                                }
+                              },
+
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue,
                                 shape: RoundedRectangleBorder(

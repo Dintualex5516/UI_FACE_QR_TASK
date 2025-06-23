@@ -85,13 +85,13 @@ class _TaskTrackerContentState extends State<TaskTrackerContent> {
           ),
         ),
               Text("Due Date: $dueDate", style: TextStyle(fontSize: 11,color: Colors.grey[600])),
-        // Text("$progress% Done", style: TextStyle(fontSize: 14)),
+        
       ]),
       // SizedBox(height: 6),
-      // Text("Due Date: $dueDate", style: TextStyle(color: Colors.grey[600])),
+      
       SizedBox(height: 8),
 
-      // Scrollable Status
+      
       SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
@@ -175,7 +175,7 @@ class _TaskTrackerContentState extends State<TaskTrackerContent> {
       Row(children: [
         for (var a in TaskAction.values)
           Padding(
-            padding: const EdgeInsets.only(right: 40),
+            padding: const EdgeInsets.only(right: 30),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               Radio<TaskAction>(
                 value: a,
