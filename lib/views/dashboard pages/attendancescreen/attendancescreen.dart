@@ -57,7 +57,7 @@ class _AttendanceCalendarScreenState extends State<AttendanceCalendarScreen> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        // Inside your build method…
+       
 Container(
   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
   decoration: BoxDecoration(
@@ -75,7 +75,7 @@ Container(
         }),
       ),
 
-      // Month + Year + Dropdown
+   
       Row(
         children: [
           Text(
@@ -84,7 +84,7 @@ Container(
           ),
           DropdownButton<int>(
             value: _focusedDay.year,
-            underline: SizedBox(), // removes default underline
+            underline: SizedBox(), 
             items: List.generate(
               5,
               (i) => _focusedDay.year - 2 + i,
@@ -227,7 +227,7 @@ Container(
                 }).toList(),
               ),
               SizedBox(height: 16),
-              // circular pie
+              
               Center(
                 child: AspectRatio(
                   aspectRatio: 1,
@@ -260,13 +260,12 @@ Container(
 
            SizedBox(height: 30),
 
-          //  date
           Text(
-  _selectedDay != null
-    ? DateFormat('MMMM d, y').format(_selectedDay!)
-    : 'Select a date',
-  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-),
+            _selectedDay != null
+              ? DateFormat('MMMM d, y').format(_selectedDay!)
+              : 'Select a date',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
           SizedBox(height: 8),
           Row(
             children: [
