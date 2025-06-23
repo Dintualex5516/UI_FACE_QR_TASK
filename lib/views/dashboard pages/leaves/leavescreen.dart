@@ -23,22 +23,55 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
 
   final _leaveTypes = ['Sick Leave', 'Casual Leave', 'Work From Home', 'Other'];
 
-  Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
-    final now = DateTime.now();
-    final initial = isFrom ? (_fromDate ?? now) : (_toDate ?? now);
-    final picked = await showDatePicker(
-      context: ctx,
-      initialDate: initial,
-      firstDate: DateTime(now.year - 1),
-      lastDate: DateTime(now.year + 1),
-    );
-    if (picked != null) {
-      setState(() {
-        if (isFrom) _fromDate = picked;
-        else _toDate = picked;
-      });
-    }
+  // Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
+  //   final now = DateTime.now();
+  //   final initial = isFrom ? (_fromDate ?? now) : (_toDate ?? now);
+  //   final picked = await showDatePicker(
+  //     context: ctx,
+  //     initialDate: initial,
+  //     firstDate: DateTime(now.year - 1),
+  //     lastDate: DateTime(now.year + 1),
+  //   );
+  //   if (picked != null) {
+  //     setState(() {
+  //       if (isFrom) _fromDate = picked;
+  //       else _toDate = picked;
+  //     });
+  //   }
+  // }
+  
+Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
+  DateTime now = DateTime.now();
+  DateTime today = DateTime(now.year, now.month, now.day);
+
+ 
+  DateTime base = isFrom
+      ? (_fromDate ?? today)
+      : (_toDate ?? today);
+
+ 
+  DateTime initial = base.isBefore(today) ? today : base;
+
+  final picked = await showDatePicker(
+    context: ctx,
+    initialDate: initial,
+    firstDate: today,
+    lastDate: DateTime(today.year + 1),
+    selectableDayPredicate: (day) {
+      final d = DateTime(day.year, day.month, day.day);
+      return !d.isBefore(today);
+    },
+  );
+
+  if (picked != null) {
+    setState(() {
+      if (isFrom) _fromDate = picked;
+      else _toDate = picked;
+    });
   }
+}
+
+
 
   String _format(DateTime? dt) =>
       dt == null ? '' : DateFormat('dd-MM-yyyy').format(dt);

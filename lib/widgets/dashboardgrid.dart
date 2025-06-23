@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_task/views/dashboard%20pages/attendancescreen/attendancescreen.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavescreen.dart';
 
 // class DashboardGrid extends StatelessWidget {
@@ -68,7 +69,12 @@ class DashboardGrid extends StatelessWidget {
 
   // Define placeholder callbacks here
   void _onAttendanceTap(BuildContext context) {
-    // TODO: implement Attendance navigation
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) =>  AttendanceCalendarScreen(),
+    ),
+  );
   }
 
   void _onLeavesTap(BuildContext context) {
