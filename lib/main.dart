@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:ui_task/viewmodel/holiday_viewmodel.dart';
 import 'package:ui_task/viewmodel/homescreenmodel.dart';
 import 'package:ui_task/views/homescreens/homescreen.dart';
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginHomeViewModel()),
+        ChangeNotifierProvider(create: (_) => HolidayViewModel()),
         ChangeNotifierProvider(create: (_) => HomeScreenViewModel()),
         ChangeNotifierProvider(create: (_) => LoginViewModel(AuthModel())),
         ChangeNotifierProvider(create: (_) => SignupViewModel(AuthModel())),
@@ -41,8 +43,8 @@ class MyApp extends StatelessWidget {
     // primarySwatch: Colors.blue,
   ),
         debugShowCheckedModeBanner: false,
-        home: LoginPage(), 
-        // home: HomeScreen(),
+        // home: LoginPage(), 
+        home: HomeScreen(),
       ),
     );
   }

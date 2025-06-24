@@ -90,21 +90,7 @@ class LoginPage extends StatelessWidget {
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
-                              // onPressed: vm.isLoading
-                              //     ? null
-                              //     : () async {
-                              //         final error = await vm.login();
-                              //         if (error == null) {
-                              //           Navigator.pushReplacement(
-                              //             context,
-                              //             MaterialPageRoute(builder: (_) => LoginHomeScreen()),
-                              //           );
-                              //         } else {
-                              //           ScaffoldMessenger.of(context).showSnackBar(
-                              //             SnackBar(content: Text(error)),
-                              //           );
-                              //         }
-                              //       },
+                            
                               onPressed: vm.isLoading
                             ? null
                             : () async {

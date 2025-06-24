@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_task/views/dashboard%20pages/HolidayList/holidaylist.dart';
 import 'package:ui_task/views/dashboard%20pages/attendancescreen/attendancescreen.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavescreen.dart';
 
@@ -92,7 +93,12 @@ class DashboardGrid extends StatelessWidget {
   }
 
   void _onHolidayListTap(BuildContext context) {
-    // TODO: implement Holiday List navigation
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) =>  HolidayScreen(),
+    ),
+  );
   }
 
   void _onPayslipTap(BuildContext context) {

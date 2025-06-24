@@ -49,7 +49,7 @@ class _AppBarHistoryState extends State<AppBarHistory> {
   return OverlayEntry(
     builder: (context) => Positioned(
       left: offset.dx + 20,
-      top: offset.dy + 50,
+      top: offset.dy + 40,
       width: MediaQuery.of(context).size.width - 40,
       child: Material(
         elevation: 8,
@@ -80,7 +80,7 @@ class _AppBarHistoryState extends State<AppBarHistory> {
           children: [
             AppBar(
               elevation: 0,
-              backgroundColor: Colors.transparent,
+              backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               leading: Padding(
                 padding: const EdgeInsets.only(left: 12.0),
@@ -156,22 +156,22 @@ class _AppBarHistoryState extends State<AppBarHistory> {
               centerTitle: false,
               foregroundColor: Colors.black,
             ),
-            Positioned(
-              top: 12,
-              left: 8,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ),
-            Positioned(
-              top: 12,
-              right: 8,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_forward, color: Colors.green),
-                onPressed: () {},
-              ),
-            ),
+            // Positioned(
+            //   top: 12,
+            //   left: 8,
+            //   child: IconButton(
+            //     icon: const Icon(Icons.arrow_back),
+            //     onPressed: () => Navigator.of(context).pop(),
+            //   ),
+            // ),
+            // Positioned(
+            //   top: 12,
+            //   right: 8,
+            //   child: IconButton(
+            //     icon: const Icon(Icons.arrow_forward, color: Colors.green),
+            //     onPressed: () {},
+            //   ),
+            // ),
           ],
         ),
       ),
