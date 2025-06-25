@@ -1,46 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ui_task/views/dashboard%20pages/HolidayList/holidaylist.dart';
+// import 'package:ui_task/views/dashboard%20pages/HolidayList/holidaylist.dart';
+import 'package:ui_task/views/dashboard%20pages/HolidayList/holydaylist_view.dart';
 import 'package:ui_task/views/dashboard%20pages/attendancescreen/attendancescreen.dart';
+import 'package:ui_task/views/dashboard%20pages/leave%20status/leave_status_view.dart';
+// import 'package:ui_task/views/dashboard%20pages/leave%20status/leavestatus_screen.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavescreen.dart';
 
-// class DashboardGrid extends StatelessWidget {
-//   const DashboardGrid({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const Padding(
-//           padding: EdgeInsets.only(left: 16, bottom: 16),
-//           child: Text(
-//             "Dashboard",
-//             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-//           ),
-//         ),
-//         Padding(
-//           padding: const EdgeInsets.symmetric(horizontal: 16),
-//           child: GridView.count(
-//             crossAxisCount: 3,
-//             crossAxisSpacing: 16,
-//             mainAxisSpacing: 16,
-//             shrinkWrap: true,
-//             physics: const NeverScrollableScrollPhysics(),
-//             children: const [
-//               _DashboardItem(Icons.calendar_month, "Attendance", Colors.green),
-//               _DashboardItem(Icons.logout, "Leaves", Colors.orange),
-//               _DashboardItem(Icons.check_circle, "Leave Status", Colors.purple),
-//               _DashboardItem(Icons.list_alt, "Holiday List", Colors.blue),
-//               _DashboardItem(Icons.receipt_long, "Payslip", Colors.teal),
-//               _DashboardItem(Icons.bar_chart, "Reports", Colors.red),
-//             ],
-//           ),
-//         ),
-//         const SizedBox(height: 16),
-//       ],
-//     );
-//   }
-// }
 
 class _DashboardItem extends StatelessWidget {
   final IconData icon;
@@ -89,7 +55,12 @@ class DashboardGrid extends StatelessWidget {
   }
 
   void _onLeaveStatusTap(BuildContext context) {
-    // TODO: implement Leave Status navigation
+      Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const LeaveStatusScreen(),
+    ),
+  );
   }
 
   void _onHolidayListTap(BuildContext context) {
@@ -139,7 +110,7 @@ class DashboardGrid extends StatelessWidget {
                 child: const _DashboardItem(Icons.logout, "Leaves", Colors.orange),
               ),
               InkWell(
-                onTap: () => ApplyLeaveScreen(),
+                onTap: () => _onLeaveStatusTap(context),
                 child: const _DashboardItem(Icons.check_circle, "Leave Status", Colors.purple),
               ),
               InkWell(

@@ -319,7 +319,6 @@ Container(
 
           SizedBox(height: 24),
 
-          // Work Mode 
 
           Row(children: [
             Expanded(
