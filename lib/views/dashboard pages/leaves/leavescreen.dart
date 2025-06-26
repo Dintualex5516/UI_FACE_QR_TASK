@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavedashboard.dart';
 import 'package:ui_task/widgets/dashappbar.dart';
-
+import 'package:file_picker/file_picker.dart';
 
 class ApplyLeaveScreen extends StatefulWidget {
   const ApplyLeaveScreen({Key? key}) : super(key: key);
@@ -23,23 +23,6 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
 
   final _leaveTypes = ['Sick Leave', 'Casual Leave', 'Work From Home', 'Other'];
 
-  // Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
-  //   final now = DateTime.now();
-  //   final initial = isFrom ? (_fromDate ?? now) : (_toDate ?? now);
-  //   final picked = await showDatePicker(
-  //     context: ctx,
-  //     initialDate: initial,
-  //     firstDate: DateTime(now.year - 1),
-  //     lastDate: DateTime(now.year + 1),
-  //   );
-  //   if (picked != null) {
-  //     setState(() {
-  //       if (isFrom) _fromDate = picked;
-  //       else _toDate = picked;
-  //     });
-  //   }
-  // }
-  
 Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
   DateTime now = DateTime.now();
   DateTime today = DateTime(now.year, now.month, now.day);
@@ -97,6 +80,8 @@ Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
   @override
   Widget build(BuildContext context) {
     const labelStyle = TextStyle(color: Colors.grey, fontSize: 14);
+    TextEditingController _fileController = TextEditingController();
+    PlatformFile? pickedFile;
 
     return Scaffold(
       appBar:AppBarHistory() ,
@@ -373,17 +358,25 @@ Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
               const SizedBox(height: 4),
               Container(
                 decoration: shadowBoxDecoration,
-                child: TextFormField(
+                child:TextFormField(
+                  controller: _fileController,
                   readOnly: true,
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.attachment_outlined),
                     hintText: 'Attachment (Optional)',
                     border: OutlineInputBorder(borderSide: BorderSide.none),
                   ),
-                  onTap: () {
-                    // TODO: Add file picker logic
+                  onTap: () async {
+                    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+                    if (result != null && result.files.isNotEmpty) {
+                      pickedFile = result.files.first;
+                      _fileController.text = pickedFile!.name;
+                      
+                    }
                   },
                 ),
+                
               ),
               const SizedBox(height: 24),
               SizedBox(

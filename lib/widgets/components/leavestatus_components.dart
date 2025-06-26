@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// InfoBox used to display title, value, icon, and optional child widget (progress, text, etc.)
+
 class InfoBox extends StatelessWidget {
   final String title;
   final String value;
@@ -53,7 +53,7 @@ class InfoBox extends StatelessWidget {
   }
 }
 
-/// Table cell used inside a Flutter [Table] widget for both headers and data rows.
+
 class TableTextCell extends StatelessWidget {
   final String text;
   final bool isHeader;
@@ -77,7 +77,7 @@ class TableTextCell extends StatelessWidget {
   }
 }
 
-/// Bar chart component used for a simple quarterly overview
+
 class BarChart extends StatelessWidget {
   final String label;
   final int value;

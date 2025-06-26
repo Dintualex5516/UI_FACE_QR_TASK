@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_task/views/dashboard%20pages/leaves/searchhistory.dart';
+import 'package:ui_task/widgets/searchhistory.dart';
 
 class AppBarHistory extends StatefulWidget implements PreferredSizeWidget {
   const AppBarHistory({Key? key}) : super(key: key);

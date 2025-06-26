@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:ui_task/views/dashboard%20pages/HolidayList/holidaylist.dart';
 import 'package:ui_task/views/dashboard%20pages/HolidayList/holydaylist_view.dart';
 import 'package:ui_task/views/dashboard%20pages/attendancescreen/attendancescreen.dart';
 import 'package:ui_task/views/dashboard%20pages/leave%20status/leave_status_view.dart';
-// import 'package:ui_task/views/dashboard%20pages/leave%20status/leavestatus_screen.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavescreen.dart';
+import 'package:ui_task/views/dashboard%20pages/payslip/payslipscreen.dart';
 
 
 
@@ -73,11 +72,16 @@ class DashboardGrid extends StatelessWidget {
   }
 
   void _onPayslipTap(BuildContext context) {
-    // TODO: implement Payslip navigation
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) =>  PaySlipScreen(),
+    ),
+  );
   }
 
   void _onReportsTap(BuildContext context) {
-    // TODO: implement Reports navigation
+    //
   }
 
   @override
