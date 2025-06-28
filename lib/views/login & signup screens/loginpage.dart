@@ -1,3 +1,181 @@
+// import 'package:flutter/material.dart';
+// import 'package:provider/provider.dart';
+// import 'package:ui_task/views/homescreens/loginhomescreen.dart';
+// import 'package:ui_task/views/login & signup screens/forgetpassword.dart';
+// import 'package:ui_task/views/login & signup screens/signuppage.dart';
+// import '/model/auth_model.dart';
+// import '/viewmodel/login_viewmodel.dart';
+
+// class LoginPage extends StatelessWidget {
+//   const LoginPage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final model = AuthModel();
+
+//     return ChangeNotifierProvider(
+//       create: (_) => LoginViewModel(model),
+//       child: Consumer<LoginViewModel>(
+//         builder: (context, vm, _) {
+//           return Scaffold(
+//             body: Stack(
+//               children: [
+             
+//                 Positioned(
+//                   top: -100,
+//                   left: -100,
+//                   child: Container(
+//                     width: 250,
+//                     height: 250,
+//                     decoration: const BoxDecoration(
+//                       color: Colors.blue,
+//                       borderRadius: BorderRadius.only(
+//                         bottomRight: Radius.circular(200),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+
+//                 Positioned(
+//                   bottom: -100,
+//                   right: -100,
+//                   child: Container(
+//                     width: 250,
+//                     height: 250,
+//                     decoration: const BoxDecoration(
+//                       color: Colors.greenAccent,
+//                       borderRadius: BorderRadius.only(
+//                         topLeft: Radius.circular(200),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+
+//                 Center(
+//                   child: SingleChildScrollView(
+//                     padding: const EdgeInsets.symmetric(horizontal: 32),
+//                     child: Form(
+//                       key: vm.formKey,
+//                       child: Column(
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         children: [
+//                           const Text(
+//                             "ZiyaAttend",
+//                             style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+//                           ),
+//                           const SizedBox(height: 6),
+//                           const Text(
+//                             "Login",
+//                             style: TextStyle(fontSize: 18, color: Colors.green),
+//                           ),
+//                           const SizedBox(height: 32),
+//                           TextFormField(
+//                             controller: model.emailController,
+//                             decoration: const InputDecoration(
+//                               labelText: "Email",
+//                               border: OutlineInputBorder(),
+//                             ),
+//                           ),
+//                           const SizedBox(height: 16),
+//                           TextFormField(
+//                             controller: model.passwordController,
+//                             obscureText: true,
+//                             decoration: const InputDecoration(
+//                               labelText: "Password",
+//                               border: OutlineInputBorder(),
+//                             ),
+//                           ),
+//                           const SizedBox(height: 24),
+//                           SizedBox(
+//                             width: double.infinity,
+//                             height: 50,
+//                             child: ElevatedButton(
+                            
+//                               onPressed: vm.isLoading
+//                             ? null
+//                             : () async {
+//                                 final error = await vm.login();
+//                                 if (error == null) {
+//                                   ScaffoldMessenger.of(context).showSnackBar(
+//                                     const SnackBar(
+//                                       content: Text("Login successful"),
+//                                       backgroundColor: Colors.green,
+//                                       duration: Duration(seconds: 2),
+//                                     ),
+//                                   );
+
+//                                   await 
+//                                   // Future.delayed(const Duration(seconds: 1)); 
+//                                   Navigator.pushReplacement(
+//                                     context,
+//                                     MaterialPageRoute(builder: (_) => LoginHomeScreen()),
+//                                   );
+//                                 } else {
+//                                   ScaffoldMessenger.of(context).showSnackBar(
+//                                     SnackBar(
+//                                       content: Text(error),
+//                                       backgroundColor: Colors.red,
+//                                       duration: const Duration(seconds: 2),
+//                                     ),
+//                                   );
+//                                 }
+//                               },
+
+//                               style: ElevatedButton.styleFrom(
+//                                 backgroundColor: Colors.blue,
+//                                 shape: RoundedRectangleBorder(
+//                                   borderRadius: BorderRadius.circular(12),
+//                                 ),
+//                               ),
+//                               child: vm.isLoading
+//                                   ? const CircularProgressIndicator(color: Colors.white)
+//                                   : const Text("Login", style: TextStyle(color: Colors.white, fontSize: 16)),
+//                             ),
+//                           ),
+//                           const SizedBox(height: 12),
+//                           TextButton(
+//                             onPressed: () => Navigator.push(
+//                               context,
+//                               MaterialPageRoute(builder: (_) => const ForgotPasswordPage()),
+//                             ),
+//                             child: const Text("Forgot Password?"),
+//                           ),
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.center,
+//                             children: [
+//                               const Text("Don't have an account? "),
+//                               GestureDetector(
+//                                 onTap: () => Navigator.push(
+//                                   context,
+//                                   MaterialPageRoute(builder: (_) => const SignupPage()),
+//                                 ),
+//                                 child: const Text(
+//                                   "Sign Up",
+//                                   style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+//                                 ),
+//                               )
+//                             ],
+//                           )
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_task/views/homescreens/loginhomescreen.dart';
@@ -20,7 +198,6 @@ class LoginPage extends StatelessWidget {
           return Scaffold(
             body: Stack(
               children: [
-             
                 Positioned(
                   top: -100,
                   left: -100,
@@ -35,7 +212,6 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Positioned(
                   bottom: -100,
                   right: -100,
@@ -50,7 +226,6 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Center(
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -61,12 +236,14 @@ class LoginPage extends StatelessWidget {
                         children: [
                           const Text(
                             "ZiyaAttend",
-                            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 32, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 6),
                           const Text(
                             "Login",
-                            style: TextStyle(fontSize: 18, color: Colors.green),
+                            style:
+                                TextStyle(fontSize: 18, color: Colors.green),
                           ),
                           const SizedBox(height: 32),
                           TextFormField(
@@ -90,37 +267,40 @@ class LoginPage extends StatelessWidget {
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
-                            
                               onPressed: vm.isLoading
-                            ? null
-                            : () async {
-                                final error = await vm.login();
-                                if (error == null) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text("Login successful"),
-                                      backgroundColor: Colors.green,
-                                      duration: Duration(seconds: 2),
-                                    ),
-                                  );
+                                  ? null
+                                  : () async {
+                                      final error = await vm.login();
 
-                                  await 
-                                  // Future.delayed(const Duration(seconds: 1)); 
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(builder: (_) => LoginHomeScreen()),
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(error),
-                                      backgroundColor: Colors.red,
-                                      duration: const Duration(seconds: 2),
-                                    ),
-                                  );
-                                }
-                              },
+                                      if (!context.mounted) return;
 
+                                      if (error == null) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                            content:
+                                                Text("Login successful"),
+                                            backgroundColor: Colors.green,
+                                            duration: Duration(seconds: 2),
+                                          ),
+                                        );
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) =>
+                                                  LoginHomeScreen()),
+                                        );
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(error),
+                                            backgroundColor: Colors.red,
+                                            duration: const Duration(seconds: 2),
+                                          ),
+                                        );
+                                      }
+                                    },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue,
                                 shape: RoundedRectangleBorder(
@@ -128,15 +308,19 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ),
                               child: vm.isLoading
-                                  ? const CircularProgressIndicator(color: Colors.white)
-                                  : const Text("Login", style: TextStyle(color: Colors.white, fontSize: 16)),
+                                  ? const CircularProgressIndicator(
+                                      color: Colors.white)
+                                  : const Text("Login",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 16)),
                             ),
                           ),
                           const SizedBox(height: 12),
                           TextButton(
                             onPressed: () => Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (_) => const ForgotPasswordPage()),
+                              MaterialPageRoute(
+                                  builder: (_) => const ForgotPasswordPage()),
                             ),
                             child: const Text("Forgot Password?"),
                           ),
@@ -147,15 +331,18 @@ class LoginPage extends StatelessWidget {
                               GestureDetector(
                                 onTap: () => Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (_) => const SignupPage()),
+                                  MaterialPageRoute(
+                                      builder: (_) => const SignupPage()),
                                 ),
                                 child: const Text(
                                   "Sign Up",
-                                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),

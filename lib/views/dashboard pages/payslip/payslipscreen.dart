@@ -16,17 +16,7 @@ class PaySlipScreen extends StatelessWidget {
       body: Stack(
         children: [
          
-          Opacity(
-            opacity: 0.1, 
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/ziya.jpeg"), 
-                 
-                ),
-              ),
-            ),
-          ),
+        
           
          
           SingleChildScrollView(
@@ -38,17 +28,7 @@ class PaySlipScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    Opacity(
-                      opacity: 0.9,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("assets/images/ziya.jpeg"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
+                   
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: const Icon(Icons.arrow_back, color: Colors.black),
@@ -76,10 +56,10 @@ class PaySlipScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("PF A/C Number: ",
+                          Text("PF A/C Number:",
                               style: TextStyle(
                                   fontSize: 10, color: Colors.grey.shade700)),
-                          const Text("DD/DD/3535/FGG5/5543",
+                          const Text("DD/DD/3535/FGG5",
                               style: TextStyle(
                                   fontSize: 10, fontWeight: FontWeight.bold)),
                           Text("UAN    :",

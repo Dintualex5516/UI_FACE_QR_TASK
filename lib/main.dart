@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:ui_task/viewmodel/holiday_viewmodel.dart';
 import 'package:ui_task/viewmodel/homescreenmodel.dart';
 import 'package:ui_task/views/homescreens/homescreen.dart';
+import 'package:ui_task/views/homescreens/loginhomescreen.dart';
 
 import 'firebase_options.dart';
 import 'model/auth_model.dart';
@@ -43,8 +44,8 @@ class MyApp extends StatelessWidget {
     // primarySwatch: Colors.blue,
   ),
         debugShowCheckedModeBanner: false,
-        // home: LoginPage(), 
-        home: HomeScreen(),
+        home: LoginPage(), 
+        // home: LoginHomeScreen(),
       ),
     );
   }

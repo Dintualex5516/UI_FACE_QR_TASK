@@ -102,4 +102,7 @@ class CustomAppBar extends StatelessWidget {
     ),
     child: Icon(iconData, size: 20, color: Colors.blue),
   );
-}}
+}
+
+}
+

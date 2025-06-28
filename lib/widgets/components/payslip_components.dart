@@ -1,5 +1,6 @@
 
 
+
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -197,6 +198,8 @@ class EmployeeSummary extends StatelessWidget {
   }
 }
 
+
+
 class EarningsDeductionsTable extends StatelessWidget {
   const EarningsDeductionsTable({super.key});
 
@@ -205,25 +208,27 @@ class EarningsDeductionsTable extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.white, 
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.4),
-            blurRadius: 4,
-            offset: const Offset(4, 4),
-          ),
+          BoxShadow(color: Colors.grey.withOpacity(0.4), blurRadius: 4, offset: const Offset(4, 4)),
         ],
+        image: DecorationImage(
+          image: AssetImage('assets/images/ziya.jpeg'),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.white.withOpacity(0.2),
+            BlendMode.dstATop,
+          ),
+        ),
       ),
       child: Column(
         children: [
+        
           Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
-              ),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.6),
+              borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
             ),
             child: Table(
               columnWidths: const {
@@ -235,44 +240,26 @@ class EarningsDeductionsTable extends StatelessWidget {
                 5: FlexColumnWidth(1),
               },
               children: [
-                _buildTableRow([
-                  "EARNINGS", "AMOUNT", "YTD", "DEDUCTIONS", "AMOUNT", "YTD"
-                ], isHeader: true),
-                _buildTableRow([
-                  "Basic", "₹25,000", "₹3,00,000", "PF Deduction", "₹2,500", "₹30,000"
-                ]),
-                _buildTableRow([
-                  "HRA", "₹10,000", "₹1,20,000", "Tax Deduction", "₹7,500", "₹90,000"
-                ]),
-                _buildTableRow([
-                  "Travel Allowance", "₹3,000", "₹36,000", "", "", ""
-                ]),
-                _buildTableRow([
-                  "Meal / Other Allow.", "₹2,000", "₹24,000", "", "", ""
-                ]),
+                _buildTableRow(["EARNINGS","AMOUNT","YTD","DEDUCTIONS","AMOUNT","YTD"], isHeader: true),
+                _buildTableRow(["Basic","₹25,000","₹3,00,000","PF Deduction","₹2,500","₹30,000"]),
+                _buildTableRow(["HRA","₹10,000","₹1,20,000","Tax Deduction","₹7,500","₹90,000"]),
+                _buildTableRow(["Travel Allowance","₹3,000","₹36,000","","",""]),
+                _buildTableRow(["Meal / Other Allow.","₹2,000","₹24,000","","",""]),
               ],
             ),
           ),
+         
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.blue.shade50,
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(12),
-                bottomRight: Radius.circular(12),
-              ),
+              color: Colors.blue.shade50.withOpacity(0.6),
+              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
             ),
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Gross Earnings ₹55,000",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
-                ),
-                Text(
-                  "Total Deductions ₹10,000",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
-                ),
+                Text("Gross Earnings ₹55,000", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11)),
+                Text("Total Deductions ₹10,000", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 11)),
               ],
             ),
           ),
@@ -283,18 +270,15 @@ class EarningsDeductionsTable extends StatelessWidget {
 
   TableRow _buildTableRow(List<String> cells, {bool isHeader = false}) {
     return TableRow(
-      children: cells
-          .map((cell) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(cell,
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight:
-                        isHeader ? FontWeight.bold : FontWeight.normal))))
-          .toList(),
+      children: cells.map((cell) => Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(cell, style: TextStyle(fontSize: 10, fontWeight: isHeader ? FontWeight.bold : FontWeight.bold)),
+      )).toList(),
     );
   }
 }
+
+
 
 class NetPayBox extends StatelessWidget {
   const NetPayBox({super.key});
@@ -372,10 +356,10 @@ class PayslipHistory extends StatelessWidget {
           child: Table(
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             columnWidths: const {
-              0: FlexColumnWidth(.9), // Month
-              1: FlexColumnWidth(1.1), // Net Pay
-              2: FlexColumnWidth(1.7), // Status
-              3: FlexColumnWidth(1.5), // Action
+              0: FlexColumnWidth(.9), // Mon--------
+              1: FlexColumnWidth(1.1), // Net ---------
+              2: FlexColumnWidth(1.7), // Stattus-----
+              3: FlexColumnWidth(1.5), // Action---==
             },
             children: [
               TableRow(

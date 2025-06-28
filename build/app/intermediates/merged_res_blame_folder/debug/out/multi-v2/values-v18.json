@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.ui_task.app-mergeDebugResources-46:/values-v18/values-v18.xml",
+            "outputFile": "com.example.ui_task.app-mergeDebugResources-50:/values-v18/values-v18.xml",
             "map": [
                 {
                     "source": "C:\\Users\\iNsPiRoN\\.gradle\\caches\\transforms-3\\790ca845ebefc0ef219a596226d215e2\\transformed\\appcompat-1.6.1\\res\\values-v18\\values-v18.xml",

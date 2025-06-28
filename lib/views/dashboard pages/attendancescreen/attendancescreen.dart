@@ -57,67 +57,67 @@ class _AttendanceCalendarScreenState extends State<AttendanceCalendarScreen> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-       
-Container(
-  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(12),
-    boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8)],
-  ),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      IconButton(
-        icon: Icon(Icons.chevron_left),
-        onPressed: () => setState(() {
-          _focusedDay = DateTime(_focusedDay.year, _focusedDay.month - 1, 1);
-        }),
-      ),
-
-   
-      Row(
-        children: [
-          Text(
-            '${_focusedDay.monthName} ',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          DropdownButton<int>(
-            value: _focusedDay.year,
-            underline: SizedBox(), 
-            items: List.generate(
-              5,
-              (i) => _focusedDay.year - 2 + i,
-            ).map((year) {
-              return DropdownMenuItem(
-                value: year,
-                child: Text(
-                  year.toString(),
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8)],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.chevron_left),
+                  onPressed: () => setState(() {
+                    _focusedDay = DateTime(_focusedDay.year, _focusedDay.month - 1, 1);
+                  }),
                 ),
-              );
-            }).toList(),
-            onChanged: (year) {
-              if (year != null) {
-                setState(() {
-                  _focusedDay = DateTime(year, _focusedDay.month, 1);
-                });
-              }
-            },
-            icon: Icon(Icons.arrow_drop_down),
-          ),
-        ],
-      ),
 
-      IconButton(
-        icon: Icon(Icons.chevron_right),
-        onPressed: () => setState(() {
-          _focusedDay = DateTime(_focusedDay.year, _focusedDay.month + 1, 1);
-        }),
-      ),
-    ],
-  ),
-),
+            
+                Row(
+                  children: [
+                    Text(
+                      '${_focusedDay.monthName} ',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                    DropdownButton<int>(
+                      value: _focusedDay.year,
+                      underline: SizedBox(), 
+                      items: List.generate(
+                        5,
+                        (i) => _focusedDay.year - 2 + i,
+                      ).map((year) {
+                        return DropdownMenuItem(
+                          value: year,
+                          child: Text(
+                            year.toString(),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (year) {
+                        if (year != null) {
+                          setState(() {
+                            _focusedDay = DateTime(year, _focusedDay.month, 1);
+                          });
+                        }
+                      },
+                      icon: Icon(Icons.arrow_drop_down),
+                    ),
+                  ],
+                ),
+
+                IconButton(
+                  icon: Icon(Icons.chevron_right),
+                  onPressed: () => setState(() {
+                    _focusedDay = DateTime(_focusedDay.year, _focusedDay.month + 1, 1);
+                  }),
+                ),
+              ],
+            ),
+          ),
 
           SizedBox(height: 16),
 
@@ -179,7 +179,7 @@ Container(
           ),
           SizedBox(height: 24),
 
-          // Overview Section
+          // Overview 
           Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(

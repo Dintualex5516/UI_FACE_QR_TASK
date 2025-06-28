@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavedashboard.dart';
+import 'package:ui_task/widgets/components/leavescreens%20components/leavescreen_components.dart';
 import 'package:ui_task/widgets/dashappbar.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -20,6 +21,9 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
   String? _leaveType;
   bool _showLeaveForm = false;
   bool _showDashboard = true;
+
+  final _fileController = TextEditingController();
+
 
   final _leaveTypes = ['Sick Leave', 'Casual Leave', 'Work From Home', 'Other'];
 
@@ -314,27 +318,27 @@ Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
                   ),
                   const SizedBox(width: 8),
                  Expanded(
-  child: Container(
-    height: 52,
-    padding: const EdgeInsets.symmetric(horizontal: 8),
-    decoration: shadowBoxDecoration,
-    child: DropdownButtonHideUnderline(
-      child: DropdownButton<String>(
-        isExpanded: true, // ✅ Important to prevent overflow
-        hint: const Text(
-          'Choose Type',
-          style: TextStyle(color: Colors.grey, fontSize: 13),
-        ),
-        value: _leaveType,
-        icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
-        items: _leaveTypes
-            .map((s) => DropdownMenuItem(value: s, child: Text(s)))
-            .toList(),
-        onChanged: (v) => setState(() => _leaveType = v),
-      ),
-    ),
-  ),
-),
+                  child: Container(
+                    height: 52,
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    decoration: shadowBoxDecoration,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        isExpanded: true, //
+                        hint: const Text(
+                          'Choose Type',
+                          style: TextStyle(color: Colors.grey, fontSize: 13),
+                        ),
+                        value: _leaveType,
+                        icon: const Icon(Icons.arrow_drop_down, color: Colors.grey),
+                        items: _leaveTypes
+                            .map((s) => DropdownMenuItem(value: s, child: Text(s)))
+                            .toList(),
+                        onChanged: (v) => setState(() => _leaveType = v),
+                      ),
+                    ),
+                  ),
+                ),
 
                 ],
               ),
@@ -356,28 +360,30 @@ Future<void> _pickDate(BuildContext ctx, bool isFrom) async {
               const SizedBox(height: 16),
               const Text('Attachment', style: labelStyle),
               const SizedBox(height: 4),
-              Container(
-                decoration: shadowBoxDecoration,
-                child:TextFormField(
-                  controller: _fileController,
-                  readOnly: true,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.attachment_outlined),
-                    hintText: 'Attachment (Optional)',
-                    border: OutlineInputBorder(borderSide: BorderSide.none),
-                  ),
-                  onTap: () async {
-                    FilePickerResult? result = await FilePicker.platform.pickFiles();
 
-                    if (result != null && result.files.isNotEmpty) {
-                      pickedFile = result.files.first;
-                      _fileController.text = pickedFile!.name;
+              AttachmentField(_fileController),
+              // Container(
+              //   decoration: shadowBoxDecoration,
+              //   child:TextFormField(
+              //     controller: _fileController,
+              //     readOnly: true,
+              //     decoration: const InputDecoration(
+              //       prefixIcon: Icon(Icons.attachment_outlined),
+              //       hintText: 'Attachment (Optional)',
+              //       border: OutlineInputBorder(borderSide: BorderSide.none),
+              //     ),
+              //     onTap: () async {
+              //       FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+              //       if (result != null && result.files.isNotEmpty) {
+              //         pickedFile = result.files.first;
+              //         _fileController.text = pickedFile!.name;
                       
-                    }
-                  },
-                ),
+              //       }
+              //     },
+              //   ),
                 
-              ),
+              // ),
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
