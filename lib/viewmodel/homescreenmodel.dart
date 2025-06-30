@@ -17,37 +17,7 @@ class HomeScreenViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-//   void showCheckoutConfirmationDialog(BuildContext context, String? method) {
-//     if (method == 'face') {
-//       Navigator.push(
-//   context,
-//   MaterialPageRoute(
-//     builder: (_) => FaceVerificationScreen(isCheckout: true),
-//   ),
-// );
-//     } else if (method == 'qr') {
-//     Navigator.push(
-//   context,
-//   MaterialPageRoute(
-//     builder: (_) => QRVerificationScreen(isCheckout: true),
-//   ),
-// );
-//     } else {
-//       showDialog(
-//         context: context,
-//         builder: (context) => AlertDialog(
-//           title: const Text("Error"),
-//           content: const Text("Punch in method not found."),
-//           actions: [
-//             TextButton(
-//               onPressed: () => Navigator.pop(context),
-//               child: const Text("OK"),
-//             )
-//           ],
-//         ),
-//       );
-//     }
-//   }
+
 
 void showCheckoutConfirmationDialog(BuildContext context, String? method) {
   showDialog(

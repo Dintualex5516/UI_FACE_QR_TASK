@@ -4,6 +4,7 @@ import 'package:ui_task/views/dashboard%20pages/attendancescreen/attendancescree
 import 'package:ui_task/views/dashboard%20pages/leave%20status/leave_status_view.dart';
 import 'package:ui_task/views/dashboard%20pages/leaves/leavescreen.dart';
 import 'package:ui_task/views/dashboard%20pages/payslip/payslipscreen.dart';
+import 'package:ui_task/views/dashboard%20pages/report/reportscreen.dart';
 
 
 
@@ -81,6 +82,11 @@ class DashboardGrid extends StatelessWidget {
   }
 
   void _onReportsTap(BuildContext context) {
+      Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) =>  AttendanceReportScreen(),
+    ),);
     //
   }
 
