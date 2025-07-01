@@ -58,6 +58,7 @@ dev_dependencies:
   file_picker: ^10.2.0
   # file_picker: ^6.1.1
   image_picker: ^1.0.7
+  flutter_svg: ^2.2.0
   
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -107,10 +108,14 @@ flutter:
     - family: PoppinsLight
       fonts:
         - asset: assets/fonts/Poppins Light 300.ttf
+    
+    - family: PoppinsBold
+      fonts:
+        - asset: assets/fonts/Poppins-SemiBold_7c466ac270132dae4bf27ce8a2b2e0b7.ttf
 
     - family: PoppinsExtraLight
       fonts:
-        - asset: assets/fonts/Poppins ExtraLight 275.ttf
+        - asset: assets/fonts/Poppins ExtraLight 275.ttf 
         # - asset: assets/fonts/Poppins-Bold.ttf
         #   weight: 700
   # fonts:

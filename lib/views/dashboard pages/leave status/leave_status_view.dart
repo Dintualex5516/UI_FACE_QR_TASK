@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:ui_task/viewmodel/leave_status_viewmodel.dart';
-import 'package:ui_task/widgets/bottomnavigation.dart';
+import 'package:ui_task/widgets/navbar/bottomnavigation.dart';
 import 'package:ui_task/widgets/components/leavestatus_components.dart';
 import 'package:ui_task/widgets/dashappbar.dart';
 
@@ -207,7 +207,7 @@ class _LeaveStatusViewBody extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar:CustomBottomNavigationBar(currentIndex: 1, onTap: (int value) {  },) ,
+      bottomNavigationBar:CustomBottomNavBar(currentIndex: 1, onTap: (int value) {  },) ,
     );
   }
 }

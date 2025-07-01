@@ -5,6 +5,7 @@ import 'package:ui_task/viewmodel/holiday_viewmodel.dart';
 import 'package:ui_task/viewmodel/homescreenmodel.dart';
 import 'package:ui_task/views/homescreens/homescreen.dart';
 import 'package:ui_task/views/homescreens/loginhomescreen.dart';
+import 'package:ui_task/views/profilescreen.dart';
 
 import 'firebase_options.dart';
 import 'model/auth_model.dart';
@@ -46,6 +47,14 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: LoginPage(), 
         // home: HomeScreen(),
+
+        routes: {
+    '/home': (_) => HomeScreen(),
+    // '/history': (_) => HistoryScreen(),
+    // '/leave': (_) => LeaveScreen(),
+    '/profile': (_) => ProfileScreen(),
+  },
+  // initialRoute: '/home',
       ),
     );
   }

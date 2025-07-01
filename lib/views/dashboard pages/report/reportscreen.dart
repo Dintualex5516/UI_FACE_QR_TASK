@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:ui_task/widgets/bottomnavigation.dart';
+import 'package:ui_task/widgets/navbar/bottomnavigation.dart';
 import 'package:ui_task/widgets/components/reportscreen.dart';
 import 'dart:math';
 
@@ -120,7 +120,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavBar(
         currentIndex: 1,
         onTap: (int value) {},
       ),

@@ -7,9 +7,10 @@ import 'package:ui_task/views/punch%20in%20out%20screens/offline%20mode/QR_ver_s
 import 'package:ui_task/views/punch%20in%20out%20screens/onlinemode/face_verification.dart';
 import 'package:ui_task/widgets/customappbar.dart';
 import 'package:ui_task/widgets/dashboardgrid.dart';
+import 'package:ui_task/widgets/navbar/navabr.dart';
 import 'package:ui_task/widgets/overview.dart';
 
-import 'package:ui_task/widgets/bottomnavigation.dart';
+import 'package:ui_task/widgets/navbar/bottomnavigation.dart';
 
 enum SelectedTab { none, myTasks, taskTracker, ongoing, workSummary }
 
@@ -142,10 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: homeVM.currentIndex,
-        onTap: homeVM.updateTabIndex,
-      ),
+      bottomNavigationBar:CustomNavBar(currentIndex: 0)
     );
   }
 }

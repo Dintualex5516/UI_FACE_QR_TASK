@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ui_task/viewmodel/payslip.dart';
-import 'package:ui_task/widgets/bottomnavigation.dart';
+import 'package:ui_task/widgets/navbar/bottomnavigation.dart';
 import 'package:ui_task/widgets/components/payslip_components.dart';
 import 'package:ui_task/widgets/dashappbar.dart';
 
@@ -119,7 +119,7 @@ class PaySlipScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavBar(
         currentIndex: 1,
         onTap: (int value) {},
       ),
